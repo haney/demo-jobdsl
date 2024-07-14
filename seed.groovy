@@ -3,9 +3,9 @@ PACKAGES = [
     demo-package2,
 ]
 
-VIEWS = [{
+VIEWS = [[
     name: 'CENTOS6',
-}]
+]]
 
 folder('EL') {
     folder(JENKINS_BRANCH) {
