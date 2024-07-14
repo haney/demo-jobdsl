@@ -17,3 +17,17 @@ for (view in VIEWS) {
         recurse()
     }
 }
+
+for (package in PACKAGES) {
+    multibranchPipelineJob("${ROOT}/${package}") {
+        branchSources {
+            branchSource {
+                source {
+                    git {
+                        remote("https://github.com/haney/${package}.git")
+                    }
+                }
+            }
+        }
+    }
+}
