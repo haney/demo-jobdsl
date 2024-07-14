@@ -18,13 +18,13 @@ for (view in VIEWS) {
     }
 }
 
-for (job in PACKAGES) {
-    multibranchPipelineJob("${ROOT}/${package}") {
+for (jobName in PACKAGES) {
+    multibranchPipelineJob("${ROOT}/${jobName}") {
         branchSources {
             branchSource {
                 source {
                     git {
-                        remote("https://github.com/haney/${package}.git")
+                        remote("https://github.com/haney/${jobName}.git")
                     }
                 }
             }
