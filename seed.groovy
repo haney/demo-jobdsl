@@ -18,7 +18,7 @@ for (view in VIEWS) {
     }
 }
 
-for (package in PACKAGES) {
+for (job in PACKAGES) {
     multibranchPipelineJob("${ROOT}/${package}") {
         branchSources {
             branchSource {
