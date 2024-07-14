@@ -8,7 +8,7 @@ pipeline {
                 removedJobAction: 'DELETE',
                 removedViewAction: 'DELETE',
                 additionalParameters: [
-                    'BRANCH': JENKINS_BRANCH,
+                    'BRANCH': BRANCH_NAME,
                 ])
             }
         }
