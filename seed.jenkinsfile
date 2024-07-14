@@ -7,9 +7,9 @@ pipeline {
                 lookupStrategy: 'JENKINS_ROOT',
                 removedJobAction: 'DELETE',
                 removedViewAction: 'DELETE',
-                additionalParameters: {
+                additionalParameters: [
                     'BRANCH': JENKINS_BRANCH,
-                })
+                ])
             }
         }
     }
