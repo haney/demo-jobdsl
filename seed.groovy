@@ -7,10 +7,13 @@ VIEWS = [[
     name: 'CENTOS6',
 ]]
 
-folder("EL/${BRANCH_NAME}") {
-    for (view in VIEWS) {
-        listView(view.name) {
-            recurse()
-        }
+ROOT = "EL/${BRANCH_NAME}"
+
+folder(ROOT) {
+}
+
+for (view in VIEWS) {
+    listView("${ROOT}/${view.name}") {
+        recurse()
     }
 }
