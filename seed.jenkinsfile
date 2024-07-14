@@ -1,10 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage('Hello') {
+        stage('Seed') {
             steps {
-                echo 'Hello World!'
+                jobDsl(targets: 'seed.groovy',
+                lookupStrategy: 'JENKINS_ROOT',
+                removedJobAction: 'DELETE',
+                removedViewAction: 'DELETE',
+                additionalParameters: {
+                    'BRANCH': JENKINS_BRANCH,
+                })
             }
         }
     }
 }
+
