@@ -8,7 +8,7 @@ VIEWS = [[
 ]]
 
 folder('EL') {
-    folder(JENKINS_BRANCH) {
+    folder(BRANCH_NAME) {
         for (view in VIEWS) {
             listView(view.name) {
                 recruse()
