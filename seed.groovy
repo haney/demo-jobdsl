@@ -25,7 +25,7 @@ for (jobName in PACKAGES) {
                         repository("${jobName}")
                         traits {
                             gitHubBranchDiscovery {
-                                strategyId('1')
+                                strategyId(3)
                             }
                         }
                     }
