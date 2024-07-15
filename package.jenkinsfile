@@ -1,16 +1,12 @@
 
 
-def matcher = JOB_NAME =~ /^EL\/(?<group>.*)\/(?<package>.*)\/(?<branch>.*)/
-if (matcher.matches()) {
-    GROUP = matcher[0].group('group')
-    PACKAGE = matcher[0].group('package')
-    BRANCH = matcher[0].group('branch')
+def CRON = ''
+(JOB_NAME =~ /^EL\/(.*)\/(.*)\/(.*)/) { group, package, branch ->
+    if (group == 'main' && branch ==~ "^(main|${package}.*\\.el[0-9_]+)\$") {
+        CRON = '* * * * *'
+    }
 }
 
-def CRON = ''
-if (GROUP == 'main' && BRANCH ==~ "^(main|${PACKAGE}.*\\.el[0-9_]+)\$") {
-    CRON = '* * * * *'
-}
 
 pipeline {
     agent any
@@ -21,6 +17,7 @@ pipeline {
         stage('Hello') {
             steps {
                 echo 'Hello World!'
+                echo CRON
                 echo JOB_NAME
                 echo BRANCH_NAME
             }
