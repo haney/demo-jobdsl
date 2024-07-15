@@ -1,7 +1,7 @@
 pipeline {
     agent any
     triggers {
-        if (JOB_NAME.startsWith('EL/main') && BRANCH_NAME ~ '^(main|.*\\.el[0-9_]+)$') {
+        if (JOB_NAME.startsWith('EL/main') && BRANCH_NAME ==~ '^(main|.*\\.el[0-9_]+)$') {
             cron ('* * * * *')
         }
     }
