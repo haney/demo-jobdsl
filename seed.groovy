@@ -54,7 +54,7 @@ for (jobName in PACKAGES) {
                     interval '1m'
                 }
                 cron {
-                    spec('* * * * *')')
+                    spec('* * * * *')
                 }
             }
         }
