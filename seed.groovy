@@ -52,8 +52,8 @@ for (jobName in PACKAGES) {
                         // matchBranches(false)
                         // fallbackBranch("${scmBranch}")
                         // lookupInParameters(false)
+                        browser {}
                         gitTool('')
-                        browser()
 
                         // List of branches to build.
                         branches {
