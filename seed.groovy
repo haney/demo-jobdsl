@@ -33,7 +33,7 @@ for (jobName in PACKAGES) {
             remoteJenkinsFileWorkflowBranchProjectFactory {
                 // Relative location within the checkout of your Pipeline script.
                 remoteJenkinsFile("package.jenkinsfile")
-                // localMarker('')
+                localMarker('')
                 remoteJenkinsFileSCM {
                     // The git plugin provides fundamental git operations for Jenkins projects.
                     gitSCM {
