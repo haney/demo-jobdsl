@@ -1,15 +1,15 @@
 
 
-def matcher = JOB_NAME =~ /^EL\/(?<group>.*)\/(?<package>.*)\/(?<branch>.*)/
+def matcher = JOB_NAME =~ /^EL\/(?<seed>.*)\/(?<package>.*)\/(?<branch>.*)/
 if (matcher.matches()) {
-    GROUP = matcher.group('group')
+    SEED_BRANCH = matcher.group('seed')
     PACKAGE = matcher.group('package')
     BRANCH = matcher.group('branch')
 }
 
 def CRON = ''
-if (GROUP == 'main' && BRANCH ==~ "^(main|${PACKAGE}.*\\.el[0-9_]+)\$") {
-    CRON = '* * * * *'
+if (SEED_BRANCH == 'main' && BRANCH ==~ "^(main|${PACKAGE}.*\\.el[0-9_]+)\$") {
+    CRON = 'H(10-40) 8 * * 0'
 }
 
 pipeline {
