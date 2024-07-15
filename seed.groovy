@@ -42,7 +42,6 @@ for (jobName in PACKAGES) {
                     namedBranchesDifferent {
                         defaultProperties {
                             suppressAutomaticTriggering {
-                                stategy('NONE')
                                 triggeredBranchesRegex(BUILD_BRANCHES)
                             }
                         }
