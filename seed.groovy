@@ -70,7 +70,7 @@ for (jobName in PACKAGES) {
                         lookupInParameters(false)
                         browser {
                             github {
-                                repoUrl 'https://github.com/haney/demo-jobdsl.git'
+                                repoUrl 'https://github.com/haney/demo-jobdsl'
                             }
                         }
                         gitTool('')
