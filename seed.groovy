@@ -26,9 +26,7 @@ for (jobName in PACKAGES) {
                     git {
                         remote("https://github.com/haney/${jobName}.git")
                         traits {
-                            gitHubBranchDiscovery() {
-                                strategyId(3)
-                            }
+                            gitBranchDiscovery() 
                         }
                     }
                 }
