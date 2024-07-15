@@ -25,6 +25,7 @@ for (jobName in PACKAGES) {
                 source {
                     git {
                         remote("https://github.com/haney/${jobName}.git")
+                        includes('*')
                     }
                 }
             }
