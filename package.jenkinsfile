@@ -1,9 +1,13 @@
+
+def CRON = ''
+if (JOB_NAME.startsWith('EL/main') && BRANCH_NAME ==~ '^(main|.*\\.el[0-9_]+)$') {
+    CRON = '* * * * *'
+}
+
 pipeline {
     agent any
     triggers {
-        if (JOB_NAME.startsWith('EL/main') && BRANCH_NAME ==~ '^(main|.*\\.el[0-9_]+)$') {
-            cron ('* * * * *')
-        }
+        cron(CRON)
     }
     stages {
         stage('Hello') {
