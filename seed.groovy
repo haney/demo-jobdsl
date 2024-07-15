@@ -1,6 +1,6 @@
 PACKAGES = [
     'demo-package1',
-    //'demo-package2',
+    'demo-package2',
 ]
 
 VIEWS = [[
