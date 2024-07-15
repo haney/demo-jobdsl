@@ -19,7 +19,7 @@ for (view in VIEWS) {
 }
 
 if (BRANCH_NAME == 'main') {
-    BUILD_BRANCHES = '^(main|.*\.el[0-9_]+)$'
+    BUILD_BRANCHES = '^(main|.*\\.el[0-9_]+)$'
 }
 else {
     BUILD_BRANCHES = '^$'
