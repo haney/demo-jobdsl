@@ -18,15 +18,14 @@ for (view in VIEWS) {
     }
 }
 
-if (BRANCH_NAME == 'main') {
-    BUILD_BRANCHES = '^(main|.*\\.el[0-9_]+)$'
-}
-else {
-    BUILD_BRANCHES = '^$'
-}
-
-
 for (jobName in PACKAGES) {
+    if (BRANCH_NAME == 'main') {
+        BUILD_BRANCHES = "^(main|${jobName}.*\\.el[0-9_]+)$"
+    }
+    else {
+        BUILD_BRANCHES = '^$'
+    }
+
     multibranchPipelineJob("${ROOT}/${jobName}") {
         branchSources {
             branchSource {
