@@ -8,7 +8,7 @@ if (matcher.matches()) {
 }
 
 def CRON = ''
-if (GROUP == 'main' && BRANCH ==~ "^(main|${PACKAGE}.*\\.el[0-9_]+)$") {
+if (GROUP == 'main' && BRANCH ==~ "^(main|${PACKAGE}.*\\.el[0-9_]+)\$") {
     CRON = '* * * * *'
 }
 
