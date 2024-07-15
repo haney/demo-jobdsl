@@ -18,6 +18,14 @@ for (view in VIEWS) {
     }
 }
 
+if (BRANCH_NAME == 'main') {
+    BUILD_BRANCHES = '^(main|.*\.el[0-9_]+)$'
+}
+else {
+    BUILD_BRANCHES = '^$'
+}
+
+
 for (jobName in PACKAGES) {
     multibranchPipelineJob("${ROOT}/${jobName}") {
         branchSources {
@@ -27,6 +35,16 @@ for (jobName in PACKAGES) {
                         remote("https://github.com/haney/${jobName}.git")
                         traits {
                             gitBranchDiscovery() 
+                        }
+                    }
+                }
+                strategy {
+                    namedBranchesDifferent {
+                        defaultProperties {
+                            suppressAutomaticTriggering {
+                                stategy('NONE')
+                                triggeredBranchesRegex(BUILD_BRANCHES)
+                            }
                         }
                     }
                 }
