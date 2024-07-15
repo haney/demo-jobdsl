@@ -48,23 +48,27 @@ for (jobName in PACKAGES) {
                 }
             }
         }
+        triggers {
+            if (BRANCH_NAME == 'main') {
+                periodicFolderTrigger {
+                    interval '1m'
+                }
+                cron {
+                    spec('* * * * *')')
+                }
+            }
+        }
         factory {
             remoteJenkinsFileWorkflowBranchProjectFactory {
-                // Relative location within the checkout of your Pipeline script.
                 remoteJenkinsFile("package.jenkinsfile")
                 localMarker('')
                 remoteJenkinsFileSCM {
-                    // The git plugin provides fundamental git operations for Jenkins projects.
                     gitSCM {
-                        // Specify the repository to track.
                         userRemoteConfigs {
                             userRemoteConfig {
-                                // Specify the URL or path of the git repository.
                                 url('https://github.com/haney/demo-jobdsl.git')
                                 credentialsId('github-p4components-app')
-                                // ID of the repository, such as origin, to uniquely identify this repository among other remote repositories.
                                 name("origin")
-                                // A refspec controls the remote refs to be retrieved and how they map to local refs.
                                 refspec("+refs/heads/${BRANCH_NAME}:refs/remotes/origin/${BRANCH_NAME}")
                             }
                         }
@@ -74,10 +78,8 @@ for (jobName in PACKAGES) {
                         browser {}
                         gitTool('')
 
-                        // List of branches to build.
                         branches {
                             branchSpec {
-                                // Specify the branches if you'd like to track a specific branch in a repository.
                                 name(BRANCH_NAME)
                             }
                         }
