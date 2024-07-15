@@ -23,6 +23,7 @@ pipeline {
                 echo 'Hello World!'
                 echo JOB_NAME
                 echo BRANCH_NAME
+                echo CRON
             }
         }
     }
