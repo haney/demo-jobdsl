@@ -1,7 +1,7 @@
 
 
 def CRON = ''
-(JOB_NAME =~ /^EL\/(.*)\/(.*)\/(.*)/) { group, package, branch ->
+(JOB_NAME =~ /^EL\/(.*)\/(.*)\/(.*)/).each { group, package, branch ->
     if (group == 'main' && branch ==~ "^(main|${package}.*\\.el[0-9_]+)\$") {
         CRON = '* * * * *'
     }
