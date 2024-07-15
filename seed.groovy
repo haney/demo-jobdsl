@@ -23,6 +23,8 @@ for (jobName in PACKAGES) {
                     github {
                         repoOwner('haney')
                         repository("${jobName}")
+                        configuredByUrl(false)
+
                         traits {
                             gitHubBranchDiscovery {
                                 strategyId(3)
