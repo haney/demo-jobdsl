@@ -46,7 +46,7 @@ for (jobName in PACKAGES) {
                                 // ID of the repository, such as origin, to uniquely identify this repository among other remote repositories.
                                 name("origin")
                                 // A refspec controls the remote refs to be retrieved and how they map to local refs.
-                                //refspec("+refs/heads/${BRANCH_NAME}:refs/remotes/origin/${BRANCH_NAME}")
+                                refspec("+refs/heads/${BRANCH_NAME}:refs/remotes/origin/${BRANCH_NAME}")
                             }
                         }
                         matchBranches(false)
