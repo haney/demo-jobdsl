@@ -3,19 +3,9 @@ PACKAGES = [
     'demo-package2',
 ]
 
-VIEWS = [[
-    name: 'CENTOS6',
-]]
-
 ROOT = "EL/${BRANCH_NAME}"
 
 folder(ROOT) {
-}
-
-for (view in VIEWS) {
-    listView("${ROOT}/${view.name}") {
-        recurse()
-    }
 }
 
 for (jobName in PACKAGES) {
@@ -33,7 +23,7 @@ for (jobName in PACKAGES) {
                     git {
                         remote("https://github.com/haney/${jobName}.git")
                         traits {
-                            gitBranchDiscovery() 
+                            gitBranchDiscovery()
                         }
                     }
                 }
@@ -52,9 +42,6 @@ for (jobName in PACKAGES) {
             if (BRANCH_NAME == 'main') {
                 periodicFolderTrigger {
                     interval '1m'
-                }
-                cron {
-                    spec('* * * * *')
                 }
             }
         }
