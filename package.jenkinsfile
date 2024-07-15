@@ -1,6 +1,14 @@
 
+
+def matcher = JOB_NAME =~ /^EL\/(?<group>.*)\/(?<package>.*)\/(?<branch>.*)/
+if (matcher.matches()) {
+    GROUP = matcher[0].group('group')
+    PACKAGE = matcher[0].group('package')
+    BRANCH = matcher[0].group('branch')
+}
+
 def CRON = ''
-if (JOB_NAME.startsWith('EL/main') && BRANCH_NAME ==~ '^(main|.*\\.el[0-9_]+)$') {
+if (GROUP == 'main' && BRANCH ==~ "^(main|${PACKAGE}.*\\.el[0-9_]+)$") {
     CRON = '* * * * *'
 }
 
