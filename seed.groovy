@@ -49,9 +49,9 @@ for (jobName in PACKAGES) {
                                 refspec("+refs/heads/${BRANCH_NAME}:refs/remotes/origin/${BRANCH_NAME}")
                             }
                         }
-                        // matchBranches(false)
-                        // fallbackBranch("${scmBranch}")
-                        // lookupInParameters(false)
+                        matchBranches(false)
+                        fallbackBranch(BRANCH_NAME)
+                        lookupInParameters(false)
                         browser {}
                         gitTool('')
 
