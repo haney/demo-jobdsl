@@ -20,7 +20,7 @@ for (view in VIEWS) {
 
 for (jobName in PACKAGES) {
     if (BRANCH_NAME == 'main') {
-        BUILD_BRANCHES = "^(main|\\${jobName}.*\\.el[0-9_]+)$"
+        BUILD_BRANCHES = "^(main|${jobName}.*\\.el[0-9_]+)\$"
     }
     else {
         BUILD_BRANCHES = '^$'
