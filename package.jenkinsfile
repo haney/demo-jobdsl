@@ -1,12 +1,16 @@
 pipeline {
     agent any
     triggers {
-        cron ('H(10-40) 8 * * 0')
+        if (JOB_NAME.startsWith('EL/main') && BRANCH_NAME ~ '^(main|.*\.el[0-9_]+)$') {
+            cron ('* * * * *')
+        }
     }
     stages {
         stage('Hello') {
             steps {
                 echo 'Hello World!'
+                echo JOB_NAME
+                echo BRANCH_NAME
             }
         }
     }
