@@ -24,6 +24,7 @@ for (jobName in PACKAGES) {
                         repoOwner('haney')
                         repository("${jobName}")
                         configuredByUrl(false)
+                        repositoryUrl("https://github.com/haney/${jobName}.git")
 
                         traits {
                             gitHubBranchDiscovery {
