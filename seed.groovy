@@ -20,10 +20,13 @@ for (jobName in PACKAGES) {
         branchSources {
             branchSource {
                 source {
-                    git {
-                        remote("https://github.com/haney/${jobName}.git")
+                    github {
+                        repoOwner('haney')
+                        repository("${jobName}")
                         traits {
-                            gitBranchDiscovery()
+                            gitHubBranchDiscovery {
+                                strategyId('1')
+                            }
                         }
                     }
                 }
@@ -62,7 +65,11 @@ for (jobName in PACKAGES) {
                         matchBranches(false)
                         fallbackBranch(BRANCH_NAME)
                         lookupInParameters(false)
-                        browser {}
+                        browser {
+                            github {
+                                repoUrl 'https://github.com/haney/demo-jobdsl.git'
+                            }
+                        }
                         gitTool('')
 
                         branches {
