@@ -21,9 +21,10 @@ for (jobName in PACKAGES) {
             branchSource {
                 source {
                     github {
+                        configuredByUrl(false)
+                        credentialsId('github-p4components-app')
                         repoOwner('haney')
                         repository("${jobName}")
-                        configuredByUrl(false)
                         repositoryUrl("https://github.com/haney/${jobName}.git")
 
                         traits {
